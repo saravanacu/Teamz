@@ -1,0 +1,140 @@
+:root {
+  --bg: #f6f7fb;
+  --card: #fff;
+  --muted: #666;
+  --accent: #1f6feb;
+}
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  background: var(--bg);
+  color: #111;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: white;
+  border-bottom: 1px solid #e6e9ef;
+}
+
+.topbar h1 { margin: 0; font-size: 20px; }
+
+.controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.controls input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.controls button {
+  padding: 8px 12px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* List */
+.list-container {
+  width: 100%;
+  padding: 16px;
+  overflow: auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(15,15,15,0.06);
+  display: flex;
+  overflow: hidden;
+}
+
+.thumb { width: 140px; height: 140px; object-fit: cover; }
+
+.card-body { padding: 12px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+
+.card .muted { color: var(--muted); font-size: 13px; }
+
+.card-actions { margin-top: auto; display: flex; gap: 8px; align-items: center; }
+
+.card-actions button {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+
+/* Map */
+.map-wrap { flex: 1; height: 100%; position: relative; }
+
+/* marker button */
+.marker-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+}
+.modal-content {
+  width: 720px;
+  max-width: 95%;
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.loading { padding: 16px; }
+.empty { padding: 16px; color: var(--muted); }
+
+/* small */
+.user-marker { font-size: 18px; }
