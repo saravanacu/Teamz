@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Map, { Marker, Popup } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+// import Map, { Marker, Popup } from 'react-map-gl';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 import ClubProfileModal from './ClubProfileModal';
 
 const MAP_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;

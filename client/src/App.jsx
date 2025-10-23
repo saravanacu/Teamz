@@ -64,13 +64,15 @@ export default function App() {
       <main className="main">
         {view === 'list' ? (
           <ClubList clubs={clubs} loading={loading} />
-        ) : (
+        ) : view === 'map' ? (
           <ClubMap clubs={clubs} userLocation={userLocation} />
         ) : (
-         <h2 style={{ textAlign: "center" }}>🏀 Basketball Club Map</h2>
-         <ClubMapView clubs={clubs} />
+          <>
+            <h2 style={{ textAlign: "center" }}>🏀 Basketball Club Map</h2>
+            <ClubMapView clubs={clubs} />
+          </>
         )}
       </main>
     </div>
   );
-} it
+}
