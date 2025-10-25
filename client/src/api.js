@@ -10,3 +10,8 @@ export async function fetchClubById(id) {
   const res = await API.get(`/clubs/${id}`);
   return res.data.data;
 }
+
+export async function addClub(payload) {
+  const res = await API.post('/clubs', payload);
+  return res.data.data;
+}

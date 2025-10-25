@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ClubList from './components/ClubList';
 import ClubMap from './components/ClubMap';
 import ClubMapView from './components/ClubMapView';
+import AddClubModal from './components/AddClubModal';
 import { fetchClubs } from './api';
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
   const [q, setQ] = useState('');
   const [city, setCity] = useState('');
   const [userLocation, setUserLocation] = useState(null);
+  const [showAddModal, setShowAddModal] = useState(false);
 
   useEffect(() => {
     loadClubs();
@@ -58,6 +60,7 @@ export default function App() {
           <button onClick={() => setView(view === 'list' ? 'map' : 'list')}>
             {view === 'list' ? 'Map View' : 'List View'}
           </button>
+          <button onClick={() => setShowAddModal(true)}>Add Club</button>
         </div>
       </header>
 
@@ -68,6 +71,17 @@ export default function App() {
           <ClubMap clubs={clubs} userLocation={userLocation} />
         )}
       </main>
+
+      {showAddModal && (
+        <AddClubModal
+          onClose={() => setShowAddModal(false)}
+          onAdded={(c) => {
+            // prepend new club to list and close modal
+            setClubs(prev => [c, ...prev]);
+            setShowAddModal(false);
+          }}
+        />
+      )}
     </div>
   );
 }
